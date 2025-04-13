@@ -103,14 +103,17 @@ public class EditDistance {
 		return counter;
 	}
 
-	
-//	dinitrophenylhydrazine
-//	acetylphenylhydrazine
+
 	
 	public static void main(String[] args) {
 		String word1 = "sea";
 		String word2 = "eat";
 		EditDistance ed = new EditDistance();
+		
+		
+		int a = 5;
+		int b = 2;
+		Math.pow(a, b);
 		
 		System.out.println(ed.minDistance2(word1, word2));
 	}
