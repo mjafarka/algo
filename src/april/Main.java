@@ -16,9 +16,9 @@ public class Main {
 	public static void main(String[] args 
 			) {
 			
-		System.out.print("i like kuzhimandhi.");
+		int x = -1234;
 		
-System.out.print("Achu"); 
+		System.out.println(x % 10);
 
 	}
 }
