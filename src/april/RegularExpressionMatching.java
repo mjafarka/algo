@@ -1,64 +1,52 @@
 package april;
 
+import java.util.Arrays;
+
 //Regular Expression Matching
 
+
+/**
+ * check 'patter#123' in goodnotes to find why those lines are important
+ */
 public class RegularExpressionMatching {
-
-	// wrong solution
-    public boolean isMatch(String s, String p) {
-        if (p.charAt(0) == '*') return false;
-
-        
-        int i = 0;
-        int j = 0;
-
-        while (i < s.length() && j < p.length()) {
-
-            if (p.charAt(j) == '.' && j < p.length() -1 && p.charAt(j + 1) == '*') return true; // edge case
-
-            if (s.charAt(i) == p.charAt(j)) {
-                i ++;
-                j++;
-                continue;
-            } 
-
-
-            if (p.charAt(j) == '*') {
-
-                char prev = p.charAt(j-1);
-
-                while (i < s.length() && s.charAt(i) == prev) {
-                    i++;
-                }
-
-                while (j < p.length() && p.charAt(j) == '*') {
-                    j ++;
-                }
-            }
-
-            if (i < s.length() && j < p.length() - 1  && p.charAt(j+1) == '*') {
-                j++ ;
-                continue;
-            } else if (i == s.length() && j == p.length()) {
-                return true;
-            } else if (i < s.length() && j < p.length() && s.charAt(i) != p.charAt(j)) {
-            	return false;
-            }
-        }
-
-         if (i == s.length() && j == p.length()) {
-            return true;
-         } else {
-            return false;
-         }
-     }
-    public static void main(String[] args) {
-		String s = "aab";
+	
+	public boolean isMatch(String text, String pattern) {
+		int[][] dp = new int[text.length()][pattern.length()];
 		
-		String p = "c*a*b";
+		for (int[] d : dp) {
+			Arrays.fill(d, -1);;
+		}
 		
-		RegularExpressionMatching a = new RegularExpressionMatching();
+		return isMatch(text,0,pattern,0,dp);
+	}
+	private boolean isMatch(String text, int i, String pattern, int j, int[][] dp) {
 		
-		System.out.println(a.isMatch(s, p));
+		if (j == pattern.length()) {
+			return i == text.length();//------------------------------------------------imp line
+		}
+		
+		if (i < text.length() && dp[i][j] != -1) {
+			return dp[i][j] == 1;
+		}
+		
+		boolean res = false;
+		boolean firstMatch = i < text.length() && (pattern.charAt(j) == text.charAt(i) || pattern.charAt(j) == '.'); //------------------------------------------------imp line
+		
+		if (j < pattern.length() - 1 && pattern.charAt(j + 1) == '*') {
+			res =  isMatch(text,i,pattern,j+2,dp) || firstMatch && isMatch(text,i+1,pattern,j,dp); 
+		} else {
+			res =  firstMatch && isMatch(text,i+1,pattern,j+1,dp);
+		}
+		if (i < text.length())
+		dp[i][j] = res ? 1 : 0;
+		
+		return res;
+	}
+	
+	public static void main(String[] args) {
+		String a = "aa";
+		String b = "a*";
+		
+		System.out.println();
 	}
 }
