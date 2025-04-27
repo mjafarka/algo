@@ -1,5 +1,8 @@
 package april;
 
-public class Rough {
+import java.util.Arrays;
 
+public class Rough {
+public static void main(String[] args) {
+}
 }
