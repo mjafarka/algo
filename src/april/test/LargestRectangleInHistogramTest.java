@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
-import april.LargestRectangleInHistogram;
+import april.MaximumAreaHistogram;
 import utilities.BuildUtility;
 
 class LargestRectangleInHistogramTest {
 
-	LargestRectangleInHistogram lrih = new LargestRectangleInHistogram();
+	MaximumAreaHistogram lrih = new MaximumAreaHistogram();
 
 	@Test
 	void testLargestRectangleArea() {
@@ -72,7 +72,7 @@ class LargestRectangleInHistogramTest {
 
 		int expected = 10;
 
-		assertEquals(expected, lrih.largestRectangleAreaEfficient(heights));
+		assertEquals(expected, lrih.largestRectangleArea(heights));
 	}
 
 	@Test
@@ -82,7 +82,7 @@ class LargestRectangleInHistogramTest {
 
 		int expected = 4;
 
-		assertEquals(expected, lrih.largestRectangleAreaEfficient(heights));
+		assertEquals(expected, lrih.largestRectangleArea(heights));
 	}
 
 	@Test
@@ -94,7 +94,7 @@ class LargestRectangleInHistogramTest {
 		System.out.println("expected"+expected);
 
 //		assertEquals(lrih.largestRectangleAreaEfficient(heights),expected);
-		assertEquals(expected,lrih.largestRectangleAreaEfficient(heights));
+		assertEquals(expected,lrih.largestRectangleArea(heights));
 	}
 
 	@Test
@@ -104,7 +104,7 @@ class LargestRectangleInHistogramTest {
 
 		int expected = 4;
 
-		assertEquals(expected, lrih.largestRectangleAreaEfficient(heights));
+		assertEquals(expected, lrih.largestRectangleArea(heights));
 	}
 
 	@Test
@@ -121,7 +121,7 @@ class LargestRectangleInHistogramTest {
 
 			int expected = 115596;
 
-			assertEquals(expected, lrih.largestRectangleAreaEfficient(heights));
+			assertEquals(expected, lrih.largestRectangleArea(heights));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
