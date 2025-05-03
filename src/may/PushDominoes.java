@@ -130,7 +130,7 @@ public class PushDominoes {
 		for (int i = 0; i < N; ++i) {
 			if (A[i] == 'R')
 				force = N;
-			else if (A[i] == 'L')
+			else if (A[i] == 'L') 
 				force = 0;
 			else
 				force = Math.max(force - 1, 0);
