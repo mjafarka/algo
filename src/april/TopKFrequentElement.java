@@ -86,7 +86,7 @@ public class TopKFrequentElement {
         
         //Select a random pivot_index
         Random random_num = new Random();
-        int pivot_index = left + random_num.nextInt(right - left);  
+        int pivot_index = left + random_num.nextInt(right - left + 1);  
 
         // Find the pivot position in a sorted list
         pivot_index = partition(left, right, pivot_index);

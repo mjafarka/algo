@@ -10,6 +10,8 @@ import java.util.Map;
  * Count of Interesting Subarrays
  * 
  * notes in good notes ipad. also with techdose
+ * 
+ * check notes. "count of interesting subarrays (new thoughts)" in good notes
  */
 public class CountInterestingSubArrays {
 //	public long countInterestingSubarrays(List<Integer> nums, int modulo, int k) {
