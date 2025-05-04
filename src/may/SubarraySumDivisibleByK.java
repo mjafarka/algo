@@ -40,7 +40,7 @@ public class SubarraySumDivisibleByK {
 		int[] nums = new int[] {1,2,3};
 		int k = 3;
 		
-		SubarraySumEqualToK s = new SubarraySumEqualToK();
+		SubarraySumDivisibleByK s = new SubarraySumDivisibleByK();
 		
 		System.out.println(s.subarraysDivByK(nums, k));
 	}
