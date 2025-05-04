@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * notes in goodnotes
  */
-public class SubarraySumEqualToK {
+public class SubarraySumDivisibleByK {
 	
 	
 	public int subarraysDivByK(int[] nums, int k) {
@@ -35,13 +35,13 @@ public class SubarraySumEqualToK {
     
     public static void main(String[] args) {
 //		int[] nums = new int[] {1,1,1};
-//		int k = 2;
+//		int k = 2;7855be2
 		
 		int[] nums = new int[] {1,2,3};
 		int k = 3;
 		
 		SubarraySumEqualToK s = new SubarraySumEqualToK();
 		
-		System.out.println(s.subarraySum(nums, k));
+		System.out.println(s.subarraysDivByK(nums, k));
 	}
 }
