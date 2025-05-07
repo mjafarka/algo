@@ -3,6 +3,8 @@ package may;
 import java.util.List;
 
 public class MinimumTotalDistance {
+	
+	// get time limit exceeds. need to update
 	public long minimumTotalDistance(List<Integer> robot, int[][] factory) {
 		return minTtlDistance(0, robot, factory, 0,0);
 	}
