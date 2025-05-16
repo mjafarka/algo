@@ -30,7 +30,7 @@ public class MinimumTotalDistance {
 		}
 		this.robot = robot;
 		this.factList = factList;
-		f = new long[robot.size()][factory.length];
+//		f = new long[robot.size()][factory.length];
 
 		dp = new long[robot.size() + 1][factList.size() + 1];
 
