@@ -7,7 +7,7 @@ import java.util.List;
 
 /* Painting a Grid With Three Different Colors */
 
-/* notes in goodnotes */
+/* notes in onenote */
 public class PaintingGridWithThreeDifferentColors {
 	private List<String> columnStates = new ArrayList<>();
 	private int[][] t;
