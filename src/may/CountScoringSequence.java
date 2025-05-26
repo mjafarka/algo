@@ -1,8 +1,16 @@
-package april;
+package may;
 
 import java.util.Arrays;
 
-public class Rough {
+import april.Rough;
+
+
+// zsdg657
+
+// onenote notes in zsdg657 or count the number of scoring sequence
+
+//count the number of scoring sequence
+public class CountScoringSequence {
 
     public int countWaysToReachScores(int a, int b) {
         int[][] dp = new int[a + 1][b + 1];
@@ -36,7 +44,8 @@ public class Rough {
             for (int j = 0; j < b + 1; j++) {
                 if (i > 0) {
                     dp[i][j] += dp[i-1][j];
-                }  if (j > 0) {
+                }  
+                if (j > 0) {
                     dp[i][j] += dp[i][j-1];
                 }
             }
@@ -48,7 +57,7 @@ public class Rough {
 
     public static void main(String[] args) {
 
-        Rough r = new Rough();
+        CountScoringSequence r = new CountScoringSequence();
 
         System.out.println(r.countWaysToReachScoresDP(6, 3));
     }
