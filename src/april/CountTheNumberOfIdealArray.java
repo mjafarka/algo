@@ -7,6 +7,8 @@ public class CountTheNumberOfIdealArray {
 	private long[][] prefixSum;
 	private long[] options;
 
+	// time complexity for this count unique sequences is m*log(m). but why ?
+	// check this on onenote by search prob name
 	private void countUniqueSequences(int curr, int idx, int maxValue) {
 		options[idx]++;
 		for (int j = 2; curr * j <= maxValue; ++j) {
