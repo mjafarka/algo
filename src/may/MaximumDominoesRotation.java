@@ -7,6 +7,48 @@ import java.util.Set;
 
 // Minimum Domino Rotations For Equal Row
 public class MaximumDominoesRotation {
+
+    //last my solution , easy to understand and optimal
+    public int minDominoRotations(int[] tops, int[] bottoms) {
+        int topSame = minRotation(tops,bottoms);
+
+        if (topSame == Integer.MAX_VALUE) {
+            int bottomSame = minRotation(bottoms,tops);
+
+            if (bottomSame == Integer.MAX_VALUE) {
+                return -1;
+            } else {
+                return bottomSame;
+            }
+        }
+
+        return topSame;
+    }
+
+    private int minRotation(int[] tops, int[] bottoms) {
+
+        int topSame = 0;
+
+        int numCntBottom = bottoms[0] == tops[0] ? 1 : 0;
+
+        for (int i = 1 ; i < tops.length ; i++ ) {
+            if (tops[i] != tops[0]) {
+                if (bottoms[i] != tops[0]) {
+                    return Integer.MAX_VALUE;
+                } else {
+                    topSame ++;
+                }
+            } 
+
+            if (bottoms[i] == tops[0])  {
+                numCntBottom += 1;
+            }
+        }
+
+        int bottSame = tops.length - numCntBottom;
+
+        return Math.min(bottSame,topSame);
+    }
 	
 	
 	/**
@@ -81,48 +123,5 @@ public class MaximumDominoesRotation {
         return ans;
     }
 	
-	/**
-	 * sum optimal solution.
-	 * 
-	 * tc = O(n), but can be optimized further
-	 * O(space) => O(1)
-	 * @param tops
-	 * @param bottoms
-	 * @return
-	 */
-	public int minDominoRotations(int[] tops, int[] bottoms) {
-
-		int res = Math.min(makeSame(tops, bottoms), makeSame(bottoms, tops));
-
-		return res == Integer.MAX_VALUE ? -1 : res;
-	}
-
-	/**
-	 * tries to make the top same
-	 */
-	private int makeSame(int[] top, int[] bottom) {
-
-		Set<Integer> topSet = new HashSet<>(List.of(1, 2, 3, 4, 5, 6));
-
-		int min = Integer.MAX_VALUE;
-
-		for (int num : topSet) {
-
-			int count = 0;
-			for (int i = 0; i < top.length; i++) {
-				if (top[i] != num) {
-					if (bottom[i] == num) {
-						count++;
-					} else {
-						count = Integer.MAX_VALUE;
-						break;
-					}
-				}
-			}
-
-			min = Math.min(count, min);
-		}
-
-		return min;
-	}
+	
 }
