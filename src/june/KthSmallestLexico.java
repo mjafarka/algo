@@ -2,6 +2,8 @@ package june;
 
 
 // K-th Smallest in Lexicographical Order
+
+// note in onenote
 public class KthSmallestLexico {
     public int findKthNumber(int n, int k) {
         int curr = 1;
