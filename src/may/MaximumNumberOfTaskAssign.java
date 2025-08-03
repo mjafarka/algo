@@ -12,6 +12,7 @@ import java.util.TreeMap;
  * 
  * 
  * efficient approach with deque. at last
+ * ^^^^ this one is commented and shown at the end.
  */
 public class MaximumNumberOfTaskAssign {
 	
@@ -157,5 +158,71 @@ public class MaximumNumberOfTaskAssign {
 		int strength = 2;
 		System.out.println(m.maxTaskAssign(tasks, workers, pills, strength));
 	}
+
+
+	/**
+	 * 
+	 * public int maxTaskAssign(int[] tasks, int[] workers, int pills, int strength) {
+        
+        Arrays.sort(tasks);
+        Arrays.sort(workers);
+
+        int l = 0;
+        int r = tasks.length;
+
+        while (l < r) {
+            int m = l + (r-l) / 2;
+
+            System.out.println("m="+m);
+            if (canComplete(m,tasks,workers, pills, strength)) {
+                System.out.println("canComplete");
+                l = m + 1;
+            } else {
+                System.out.println("cannot complete");
+                r = m;
+            }
+
+            System.out.println("next");
+        }
+
+        return r;
+    }
+
+    private boolean canComplete(int m, int[] tasks, int[] workers, int p, int s) {
+        
+      
+        int i = m;
+        int j =workers.length-1;
+
+        Deque<Integer> dq = new ArrayDeque<>();
+        while (i >= 0) {
+
+            if (dq.isEmpty() == false && dq.peekLast() >= tasks[i]) {
+                i --;
+                dq.removeLast();
+                continue;
+            } else if (j >= 0 && workers[j] >= tasks[i]) {
+                j --;
+                i --;
+            } else {
+
+                while (j >= 0 && workers[j] + s >= tasks[i]) {
+                    dq.addFirst(workers[j--]);
+                }
+                
+                if (p > 0 && dq.size() > 0) {
+                    i --;
+                    p--;
+                    dq.removeFirst();
+                } else {
+                    return false;
+                }
+
+            }
+        }
+
+        return true;
+    }
+	 */
 	
 }
