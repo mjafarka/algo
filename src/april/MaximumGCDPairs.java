@@ -4,8 +4,15 @@ import java.util.Arrays;
 
 
 //Max GCD Pair
+
+
 public class MaximumGCDPairs {
 	
+	/**
+	 * 
+	 * time complexity is (maxNum * log(maximumNum)), because of harmonic series
+	 * explanation :-> https://chatgpt.com/s/t_6892797e780c81918ca6e367988d4399
+	 */
 	/**
 	 * find the maximum. and use a frequency array to story frequency.
 	 * 
